@@ -1,10 +1,12 @@
 const app = require('../app');
 const request = require('supertest');
+require('../models');
 
 let id;
 
 test("GET /students debe traer todos los estudiantes", async () => {
   const res = await request(app).get('/students');
+  console.log(res.body)
   expect(res.status).toBe(200);
   expect(res.body).toBeInstanceOf(Array);
 });
